@@ -79,7 +79,9 @@ cti:AttackTechnique rdf:type owl:Class .
 
 ###  https://github.com/Timoseee/windows-cyber-threat-kg/ontology#OperatingSystem
 cti:OperatingSystem rdf:type owl:Class ;
-                    rdfs:subClassOf cti:SoftwareProduct .
+                    rdfs:subClassOf cti:SoftwareProduct ;
+                    rdfs:comment "This class is same with UCO's: OperatingSystem" ;
+                    rdfs:seeAlso "https://ontology.unifiedcyberontology.org/uco/observable/OperatingSystem" .
 
 
 ###  https://github.com/Timoseee/windows-cyber-threat-kg/ontology#Platform
@@ -91,7 +93,9 @@ cti:SeverityLevel rdf:type owl:Class .
 
 
 ###  https://github.com/Timoseee/windows-cyber-threat-kg/ontology#SoftwareProduct
-cti:SoftwareProduct rdf:type owl:Class .
+cti:SoftwareProduct rdf:type owl:Class ;
+                    rdfs:comment "This class is related to UCO: software" ;
+                    rdfs:seeAlso "https://ontology.unifiedcyberontology.org/uco/observable/Software" .
 
 
 ###  https://github.com/Timoseee/windows-cyber-threat-kg/ontology#ThreatActor
