@@ -1,0 +1,172 @@
+@prefix : <http://www.semanticweb.org/lenovo/ontologies/2026/9/untitled-ontology-10/> .
+@prefix cti: <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/lenovo/ontologies/2026/9/untitled-ontology-10/> .
+
+<https://github.com/Timoseee/windows-cyber-threat-kg/ontology> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://github.com/Timoseee/windows-cyber-threat-kg/ontology#affectsProduct
+cti:affectsProduct rdf:type owl:ObjectProperty ;
+                   rdfs:domain cti:Vulnerability ;
+                   rdfs:range cti:SoftwareProduct .
+
+
+###  https://github.com/Timoseee/windows-cyber-threat-kg/ontology#applicableToPlatform
+cti:applicableToPlatform rdf:type owl:ObjectProperty ;
+                         rdfs:domain cti:AttackTechnique ;
+                         rdfs:range cti:Platform .
+
+
+###  https://github.com/Timoseee/windows-cyber-threat-kg/ontology#belongsToPlatform
+cti:belongsToPlatform rdf:type owl:ObjectProperty ;
+                      rdfs:domain cti:OperatingSystem ;
+                      rdfs:range cti:Platform .
+
+
+###  https://github.com/Timoseee/windows-cyber-threat-kg/ontology#belongsToTactic
+cti:belongsToTactic rdf:type owl:ObjectProperty ;
+                    rdfs:domain cti:AttackTechnique ;
+                    rdfs:range cti:AttackTactic .
+
+
+###  https://github.com/Timoseee/windows-cyber-threat-kg/ontology#conductsCampaign
+cti:conductsCampaign rdf:type owl:ObjectProperty ;
+                     rdfs:domain cti:ThreatActor ;
+                     rdfs:range cti:AttackCampaign .
+
+
+###  https://github.com/Timoseee/windows-cyber-threat-kg/ontology#hasSeverity
+cti:hasSeverity rdf:type owl:ObjectProperty ;
+                rdfs:domain cti:Vulnerability ;
+                rdfs:range cti:SeverityLevel .
+
+
+###  https://github.com/Timoseee/windows-cyber-threat-kg/ontology#hasWeakness
+cti:hasWeakness rdf:type owl:ObjectProperty ;
+                rdfs:domain cti:Vulnerability ;
+                rdfs:range cti:Weakness .
+
+
+###  https://github.com/Timoseee/windows-cyber-threat-kg/ontology#usesTechnique
+cti:usesTechnique rdf:type owl:ObjectProperty ;
+                  rdfs:domain cti:ThreatActor ;
+                  rdfs:range cti:AttackTechnique .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://github.com/Timoseee/windows-cyber-threat-kg/ontology#AttackCampaign
+cti:AttackCampaign rdf:type owl:Class .
+
+
+###  https://github.com/Timoseee/windows-cyber-threat-kg/ontology#AttackTactic
+cti:AttackTactic rdf:type owl:Class .
+
+
+###  https://github.com/Timoseee/windows-cyber-threat-kg/ontology#AttackTechnique
+cti:AttackTechnique rdf:type owl:Class .
+
+
+###  https://github.com/Timoseee/windows-cyber-threat-kg/ontology#OperatingSystem
+cti:OperatingSystem rdf:type owl:Class ;
+                    rdfs:subClassOf cti:SoftwareProduct .
+
+
+###  https://github.com/Timoseee/windows-cyber-threat-kg/ontology#Platform
+cti:Platform rdf:type owl:Class .
+
+
+###  https://github.com/Timoseee/windows-cyber-threat-kg/ontology#SeverityLevel
+cti:SeverityLevel rdf:type owl:Class .
+
+
+###  https://github.com/Timoseee/windows-cyber-threat-kg/ontology#SoftwareProduct
+cti:SoftwareProduct rdf:type owl:Class .
+
+
+###  https://github.com/Timoseee/windows-cyber-threat-kg/ontology#ThreatActor
+cti:ThreatActor rdf:type owl:Class .
+
+
+###  https://github.com/Timoseee/windows-cyber-threat-kg/ontology#Vulnerability
+cti:Vulnerability rdf:type owl:Class ;
+                  rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                    owl:onProperty cti:affectsProduct ;
+                                    owl:someValuesFrom cti:SoftwareProduct
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty cti:hasWeakness ;
+                                    owl:someValuesFrom cti:Weakness
+                                  ] .
+
+
+###  https://github.com/Timoseee/windows-cyber-threat-kg/ontology#Weakness
+cti:Weakness rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://github.com/Timoseee/windows-cyber-threat-kg/ontology#APT29_G0016
+cti:APT29_G0016 rdf:type owl:NamedIndividual ,
+                         cti:ThreatActor ;
+                cti:usesTechnique cti:T1566_001_SpearphishingAttachment ;
+                rdfs:label "APT29 (G0016)" ;
+                rdfs:seeAlso "https://attack.mitre.org/groups/G0016/" .
+
+
+###  https://github.com/Timoseee/windows-cyber-threat-kg/ontology#CVE_2024_30051
+cti:CVE_2024_30051 rdf:type owl:NamedIndividual ,
+                            cti:Vulnerability ;
+                   cti:affectsProduct cti:Windows11_23H2 ;
+                   cti:hasWeakness cti:CWE_122_HeapBasedBufferOverflow ;
+                   rdfs:seeAlso "https://nvd.nist.gov/vuln/detail/CVE-2024-30051" .
+
+
+###  https://github.com/Timoseee/windows-cyber-threat-kg/ontology#CWE_122_HeapBasedBufferOverflow
+cti:CWE_122_HeapBasedBufferOverflow rdf:type owl:NamedIndividual ,
+                                             cti:Weakness ;
+                                    rdfs:label "CWE-122: Heap-based Buffer Overflow" ;
+                                    rdfs:seeAlso "https://cwe.mitre.org/data/definitions/122.html" .
+
+
+###  https://github.com/Timoseee/windows-cyber-threat-kg/ontology#InitialAccess
+cti:InitialAccess rdf:type owl:NamedIndividual ,
+                           cti:AttackTactic ;
+                  rdfs:label "Initial Access" .
+
+
+###  https://github.com/Timoseee/windows-cyber-threat-kg/ontology#T1566_001_SpearphishingAttachment
+cti:T1566_001_SpearphishingAttachment rdf:type owl:NamedIndividual ,
+                                               cti:AttackTechnique ;
+                                      cti:applicableToPlatform cti:Windows ;
+                                      cti:belongsToTactic cti:InitialAccess ;
+                                      rdfs:label "Spearphishing Attachment (T1566.001)" ;
+                                      rdfs:seeAlso "https://attack.mitre.org/techniques/T1566/001/" .
+
+
+###  https://github.com/Timoseee/windows-cyber-threat-kg/ontology#Windows
+cti:Windows rdf:type owl:NamedIndividual ,
+                     cti:Platform ;
+            rdfs:label "Windows" .
+
+
+###  https://github.com/Timoseee/windows-cyber-threat-kg/ontology#Windows11_23H2
+cti:Windows11_23H2 rdf:type owl:NamedIndividual ,
+                            cti:OperatingSystem ;
+                   cti:belongsToPlatform cti:Windows ;
+                   rdfs:label "Windows 11 Version 23H2" .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
