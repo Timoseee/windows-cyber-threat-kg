@@ -14,6 +14,7 @@ cti:CVE_2024_30051 a owl:NamedIndividual,
         cti:Vulnerability ;
     rdfs:seeAlso "https://nvd.nist.gov/vuln/detail/CVE-2024-30051" ;
     cti:affectsProduct cti:Windows11_23H2 ;
+    cti:hasSeverity cti:HighSeverity ;
     cti:hasWeakness cti:CWE_122_HeapBasedBufferOverflow .
 
 cti:G0022 a cti:ThreatActor ;
@@ -103,11 +104,12 @@ cti:CWE_122_HeapBasedBufferOverflow a owl:NamedIndividual,
     rdfs:label "CWE-122: Heap-based Buffer Overflow" ;
     rdfs:seeAlso "https://cwe.mitre.org/data/definitions/122.html" .
 
+cti:HighSeverity a cti:SeverityLevel ;
+    rdfs:label "HIGH severity" .
+
 cti:InitialAccess a owl:NamedIndividual,
         cti:AttackTactic ;
     rdfs:label "Initial Access" .
-
-cti:SeverityLevel a owl:Class .
 
 cti:Windows11_23H2 a owl:NamedIndividual,
         cti:OperatingSystem ;
@@ -122,12 +124,64 @@ cti:hasWeakness a owl:ObjectProperty ;
     rdfs:domain cti:Vulnerability ;
     rdfs:range cti:Weakness .
 
+<https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_10_1507_*> a cti:OperatingSystem ;
+    rdfs:label "windows_10_1507 *" ;
+    cti:affectsProduct <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_10_1507_*> ;
+    cti:belongsToPlatform cti:Windows .
+
+<https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_10_1607_*> a cti:OperatingSystem ;
+    rdfs:label "windows_10_1607 *" ;
+    cti:affectsProduct <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_10_1607_*> ;
+    cti:belongsToPlatform cti:Windows .
+
+<https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_10_1809_*> a cti:OperatingSystem ;
+    rdfs:label "windows_10_1809 *" ;
+    cti:affectsProduct <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_10_1809_*> ;
+    cti:belongsToPlatform cti:Windows .
+
+<https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_10_21h2_*> a cti:OperatingSystem ;
+    rdfs:label "windows_10_21h2 *" ;
+    cti:affectsProduct <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_10_21h2_*> ;
+    cti:belongsToPlatform cti:Windows .
+
+<https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_10_22h2_*> a cti:OperatingSystem ;
+    rdfs:label "windows_10_22h2 *" ;
+    cti:affectsProduct <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_10_22h2_*> ;
+    cti:belongsToPlatform cti:Windows .
+
+<https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_11_21h2_*> a cti:OperatingSystem ;
+    rdfs:label "windows_11_21h2 *" ;
+    cti:affectsProduct <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_11_21h2_*> ;
+    cti:belongsToPlatform cti:Windows .
+
+<https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_11_22h2_*> a cti:OperatingSystem ;
+    rdfs:label "windows_11_22h2 *" ;
+    cti:affectsProduct <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_11_22h2_*> ;
+    cti:belongsToPlatform cti:Windows .
+
+<https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_11_23h2_*> a cti:OperatingSystem ;
+    rdfs:label "windows_11_23h2 *" ;
+    cti:affectsProduct <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_11_23h2_*> ;
+    cti:belongsToPlatform cti:Windows .
+
+<https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_server_2016_*> a cti:OperatingSystem ;
+    rdfs:label "windows_server_2016 *" ;
+    cti:affectsProduct <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_server_2016_*> ;
+    cti:belongsToPlatform cti:Windows .
+
+<https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_server_2019_*> a cti:OperatingSystem ;
+    rdfs:label "windows_server_2019 *" ;
+    cti:affectsProduct <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_server_2019_*> ;
+    cti:belongsToPlatform cti:Windows .
+
+<https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_server_2022_*> a cti:OperatingSystem ;
+    rdfs:label "windows_server_2022 *" ;
+    cti:affectsProduct <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_server_2022_*> ;
+    cti:belongsToPlatform cti:Windows .
+
 cti:AttackTactic a owl:Class .
 
-cti:OperatingSystem a owl:Class ;
-    rdfs:comment "This class is same with UCO's: OperatingSystem" ;
-    rdfs:seeAlso "https://ontology.unifiedcyberontology.org/uco/observable/OperatingSystem" ;
-    rdfs:subClassOf cti:SoftwareProduct .
+cti:SeverityLevel a owl:Class .
 
 cti:Platform a owl:Class .
 
@@ -164,16 +218,21 @@ cti:T1566_001_SpearphishingAttachment a owl:NamedIndividual,
     cti:applicableToPlatform cti:Windows ;
     cti:belongsToTactic cti:InitialAccess .
 
-cti:Windows a owl:NamedIndividual,
-        cti:Platform ;
-    rdfs:label "Windows" .
-
 cti:T1059.003 a cti:AttackTechnique ;
     rdfs:label "Windows Command Shell (T1059.003)" ;
     cti:applicableToPlatform cti:Windows .
 
 cti:AttackTechnique a owl:Class .
 
+cti:OperatingSystem a owl:Class ;
+    rdfs:comment "This class is same with UCO's: OperatingSystem" ;
+    rdfs:seeAlso "https://ontology.unifiedcyberontology.org/uco/observable/OperatingSystem" ;
+    rdfs:subClassOf cti:SoftwareProduct .
+
 cti:ThreatActor a owl:Class .
+
+cti:Windows a owl:NamedIndividual,
+        cti:Platform ;
+    rdfs:label "Windows" .
 
 
