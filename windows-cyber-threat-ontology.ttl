@@ -1,0 +1,69 @@
+@prefix cti: <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://github.com/Timoseee/windows-cyber-threat-kg/ontology> a owl:Ontology .
+
+cti:applicableToPlatform a owl:ObjectProperty ;
+    rdfs:domain cti:AttackTechnique ;
+    rdfs:range cti:Platform .
+
+cti:belongsToPlatform a owl:ObjectProperty ;
+    rdfs:domain cti:OperatingSystem ;
+    rdfs:range cti:Platform .
+
+cti:belongsToTactic a owl:ObjectProperty ;
+    rdfs:domain cti:AttackTechnique ;
+    rdfs:range cti:AttackTactic .
+
+cti:conductsCampaign a owl:ObjectProperty ;
+    rdfs:domain cti:ThreatActor ;
+    rdfs:range cti:AttackCampaign .
+
+cti:hasSeverity a owl:ObjectProperty ;
+    rdfs:domain cti:Vulnerability ;
+    rdfs:range cti:SeverityLevel .
+
+cti:usesTechnique a owl:ObjectProperty ;
+    rdfs:domain cti:ThreatActor ;
+    rdfs:range cti:AttackTechnique .
+
+cti:AttackCampaign a owl:Class .
+
+cti:AttackTactic a owl:Class .
+
+cti:OperatingSystem a owl:Class ;
+    rdfs:comment "This class is same with UCO's: OperatingSystem" ;
+    rdfs:seeAlso "https://ontology.unifiedcyberontology.org/uco/observable/OperatingSystem" ;
+    rdfs:subClassOf cti:SoftwareProduct .
+
+cti:SeverityLevel a owl:Class .
+
+cti:affectsProduct a owl:ObjectProperty ;
+    rdfs:domain cti:Vulnerability ;
+    rdfs:range cti:SoftwareProduct .
+
+cti:hasWeakness a owl:ObjectProperty ;
+    rdfs:domain cti:Vulnerability ;
+    rdfs:range cti:Weakness .
+
+cti:Platform a owl:Class .
+
+cti:ThreatActor a owl:Class .
+
+cti:Weakness a owl:Class .
+
+cti:AttackTechnique a owl:Class .
+
+cti:SoftwareProduct a owl:Class ;
+    rdfs:comment "This class is related to UCO: software" ;
+    rdfs:seeAlso "https://ontology.unifiedcyberontology.org/uco/observable/Software" .
+
+cti:Vulnerability a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty cti:affectsProduct ;
+            owl:someValuesFrom cti:SoftwareProduct ],
+        [ a owl:Restriction ;
+            owl:onProperty cti:hasWeakness ;
+            owl:someValuesFrom cti:Weakness ] .
+
