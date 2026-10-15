@@ -1,22 +1,9 @@
-@prefix cti: <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix ns1: <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<https://github.com/Timoseee/windows-cyber-threat-kg/instances> a owl:Ontology ;
-    owl:imports <https://github.com/Timoseee/windows-cyber-threat-kg/ontology> .
-
-cti:APT29_G0016 a owl:NamedIndividual,
-        cti:ThreatActor ;
-    rdfs:label "APT29 (G0016)" ;
-    rdfs:seeAlso "https://attack.mitre.org/groups/G0016/" ;
-    cti:usesTechnique cti:T1566_001_SpearphishingAttachment .
-
-cti:CVE_2024_30051 a owl:NamedIndividual,
-        cti:Vulnerability ;
+ns1:CVE_2024_30051 a ns1:Vulnerability ;
     rdfs:label "CVE-2024-30051" ;
-    rdfs:seeAlso "https://nvd.nist.gov/vuln/detail/CVE-2024-30051" ;
-    cti:affectsProduct cti:Windows11_23H2,
-        <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_10_1507_*>,
+    ns1:affectsProduct <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_10_1507_*>,
         <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_10_1607_*>,
         <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_10_1809_*>,
         <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_10_21h2_*>,
@@ -27,14 +14,13 @@ cti:CVE_2024_30051 a owl:NamedIndividual,
         <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_server_2016_*>,
         <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_server_2019_*>,
         <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_server_2022_*> ;
-    cti:hasSeverity cti:HighSeverity ;
-    cti:hasWeakness cti:CWE_122_HeapBasedBufferOverflow,
-        cti:CWE_787 .
+    ns1:hasSeverity ns1:HighSeverity ;
+    ns1:hasWeakness ns1:CWE_122,
+        ns1:CWE_787 .
 
-cti:CVE_2024_30078 a cti:Vulnerability ;
+ns1:CVE_2024_30078 a ns1:Vulnerability ;
     rdfs:label "CVE-2024-30078" ;
-    cti:affectsProduct cti:Windows11_23H2,
-        <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_10_1507_*>,
+    ns1:affectsProduct <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_10_1507_*>,
         <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_10_1607_*>,
         <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_10_1809_*>,
         <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_10_21h2_*>,
@@ -42,21 +28,20 @@ cti:CVE_2024_30078 a cti:Vulnerability ;
         <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_11_21h2_*>,
         <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_11_22h2_*>,
         <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_11_23h2_*>,
-        cti:windows_server_2008_-,
-        cti:windows_server_2008_r2,
-        cti:windows_server_2012_-,
-        cti:windows_server_2012_r2,
+        ns1:windows_server_2008_-,
+        ns1:windows_server_2008_r2,
+        ns1:windows_server_2012_-,
+        ns1:windows_server_2012_r2,
         <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_server_2016_*>,
         <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_server_2019_*>,
         <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_server_2022_*>,
         <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_server_2022_23h2_*> ;
-    cti:hasSeverity cti:HighSeverity ;
-    cti:hasWeakness cti:CWE_20 .
+    ns1:hasSeverity ns1:HighSeverity ;
+    ns1:hasWeakness ns1:CWE_20 .
 
-cti:CVE_2024_38063 a cti:Vulnerability ;
+ns1:CVE_2024_38063 a ns1:Vulnerability ;
     rdfs:label "CVE-2024-38063" ;
-    cti:affectsProduct cti:Windows11_23H2,
-        <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_10_1507_*>,
+    ns1:affectsProduct <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_10_1507_*>,
         <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_10_1607_*>,
         <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_10_1809_*>,
         <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_10_21h2_*>,
@@ -65,212 +50,884 @@ cti:CVE_2024_38063 a cti:Vulnerability ;
         <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_11_22h2_*>,
         <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_11_23h2_*>,
         <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_11_24h2_*>,
-        cti:windows_server_2008_-,
-        cti:windows_server_2008_r2,
+        ns1:windows_server_2008_-,
+        ns1:windows_server_2008_r2,
         <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_server_2012_*>,
-        cti:windows_server_2012_r2,
+        ns1:windows_server_2012_r2,
         <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_server_2016_*>,
         <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_server_2019_*>,
         <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_server_2022_*>,
         <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_server_2022_23h2_*> ;
-    cti:hasSeverity cti:CriticalSeverity ;
-    cti:hasWeakness cti:CWE_191 .
+    ns1:hasSeverity ns1:CriticalSeverity ;
+    ns1:hasWeakness ns1:CWE_191 .
 
-cti:CVE_2024_38080 a cti:Vulnerability ;
+ns1:CVE_2024_38080 a ns1:Vulnerability ;
     rdfs:label "CVE-2024-38080" ;
-    cti:affectsProduct cti:Windows11_23H2,
-        <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_11_21h2_*>,
+    ns1:affectsProduct <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_11_21h2_*>,
         <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_11_22h2_*>,
         <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_11_23h2_*>,
         <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_server_2022_*>,
         <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_server_2022_23h2_*> ;
-    cti:hasSeverity cti:HighSeverity ;
-    cti:hasWeakness cti:CWE_190 .
+    ns1:hasSeverity ns1:HighSeverity ;
+    ns1:hasWeakness ns1:CWE_190 .
 
-cti:G0022 a cti:ThreatActor ;
+ns1:G0004 a ns1:ThreatActor ;
+    rdfs:label "Ke3chang (G0004)" ;
+    ns1:usesTechnique ns1:T1059.003 .
+
+ns1:G0005 a ns1:ThreatActor ;
+    rdfs:label "APT12 (G0005)" ;
+    ns1:usesTechnique ns1:T1566.001 .
+
+ns1:G0006 a ns1:ThreatActor ;
+    rdfs:label "APT1 (G0006)" ;
+    ns1:usesTechnique ns1:T1059.003,
+        ns1:T1566.001 .
+
+ns1:G0007 a ns1:ThreatActor ;
+    rdfs:label "APT28 (G0007)" ;
+    ns1:usesTechnique ns1:T1059.001,
+        ns1:T1059.003,
+        ns1:T1566.001 .
+
+ns1:G0009 a ns1:ThreatActor ;
+    rdfs:label "Deep Panda (G0009)" ;
+    ns1:usesTechnique ns1:T1047,
+        ns1:T1059.001 .
+
+ns1:G0010 a ns1:ThreatActor ;
+    rdfs:label "Turla (G0010)" ;
+    ns1:usesTechnique ns1:T1059.001,
+        ns1:T1059.003 .
+
+ns1:G0012 a ns1:ThreatActor ;
+    rdfs:label "Darkhotel (G0012)" ;
+    ns1:usesTechnique ns1:T1059.003,
+        ns1:T1566.001 .
+
+ns1:G0013 a ns1:ThreatActor ;
+    rdfs:label "APT30 (G0013)" ;
+    ns1:usesTechnique ns1:T1566.001 .
+
+ns1:G0016 a ns1:ThreatActor ;
+    rdfs:label "APT29 (G0016)" ;
+    ns1:usesTechnique ns1:T1047,
+        ns1:T1053.005,
+        ns1:T1059.001,
+        ns1:T1566.001 .
+
+ns1:G0018 a ns1:ThreatActor ;
+    rdfs:label "admin@338 (G0018)" ;
+    ns1:usesTechnique ns1:T1059.003,
+        ns1:T1566.001 .
+
+ns1:G0019 a ns1:ThreatActor ;
+    rdfs:label "Naikon (G0019)" ;
+    ns1:usesTechnique ns1:T1047,
+        ns1:T1053.005,
+        ns1:T1566.001 .
+
+ns1:G0021 a ns1:ThreatActor ;
+    rdfs:label "Molerats (G0021)" ;
+    ns1:usesTechnique ns1:T1053.005,
+        ns1:T1059.001,
+        ns1:T1566.001 .
+
+ns1:G0022 a ns1:ThreatActor ;
     rdfs:label "APT3 (G0022)" ;
-    cti:usesTechnique cti:T1053.005,
-        cti:T1059.001,
-        cti:T1059.003 .
+    ns1:usesTechnique ns1:T1053.005,
+        ns1:T1059.001,
+        ns1:T1059.003 .
 
-cti:G0066 a cti:ThreatActor ;
+ns1:G0026 a ns1:ThreatActor ;
+    rdfs:label "APT18 (G0026)" ;
+    ns1:usesTechnique ns1:T1059.003 .
+
+ns1:G0027 a ns1:ThreatActor ;
+    rdfs:label "Threat Group-3390 (G0027)" ;
+    ns1:usesTechnique ns1:T1047,
+        ns1:T1059.001,
+        ns1:T1059.003,
+        ns1:T1566.001 .
+
+ns1:G0028 a ns1:ThreatActor ;
+    rdfs:label "Threat Group-1314 (G0028)" ;
+    ns1:usesTechnique ns1:T1059.003 .
+
+ns1:G0030 a ns1:ThreatActor ;
+    rdfs:label "Lotus Blossom (G0030)" ;
+    ns1:usesTechnique ns1:T1047 .
+
+ns1:G0032 a ns1:ThreatActor ;
+    rdfs:label "Lazarus Group (G0032)" ;
+    ns1:usesTechnique ns1:T1047,
+        ns1:T1053.005,
+        ns1:T1059.001,
+        ns1:T1059.003,
+        ns1:T1566.001 .
+
+ns1:G0033 a ns1:ThreatActor ;
+    rdfs:label "Poseidon Group (G0033)" ;
+    ns1:usesTechnique ns1:T1059.001 .
+
+ns1:G0034 a ns1:ThreatActor ;
+    rdfs:label "Sandworm Team (G0034)" ;
+    ns1:usesTechnique ns1:T1047,
+        ns1:T1053.005,
+        ns1:T1059.001,
+        ns1:T1566.001 .
+
+ns1:G0035 a ns1:ThreatActor ;
+    rdfs:label "Dragonfly (G0035)" ;
+    ns1:usesTechnique ns1:T1053.005,
+        ns1:T1059.001,
+        ns1:T1059.003,
+        ns1:T1566.001 .
+
+ns1:G0037 a ns1:ThreatActor ;
+    rdfs:label "FIN6 (G0037)" ;
+    ns1:usesTechnique ns1:T1047,
+        ns1:T1053.005,
+        ns1:T1059.001,
+        ns1:T1059.003,
+        ns1:T1566.001 .
+
+ns1:G0038 a ns1:ThreatActor ;
+    rdfs:label "Stealth Falcon (G0038)" ;
+    ns1:usesTechnique ns1:T1047,
+        ns1:T1053.005,
+        ns1:T1059.001 .
+
+ns1:G0039 a ns1:ThreatActor ;
+    rdfs:label "Suckfly (G0039)" ;
+    ns1:usesTechnique ns1:T1059.003 .
+
+ns1:G0040 a ns1:ThreatActor ;
+    rdfs:label "Patchwork (G0040)" ;
+    ns1:usesTechnique ns1:T1053.005,
+        ns1:T1059.001,
+        ns1:T1059.003,
+        ns1:T1566.001 .
+
+ns1:G0045 a ns1:ThreatActor ;
+    rdfs:label "menuPass (G0045)" ;
+    ns1:usesTechnique ns1:T1047,
+        ns1:T1053.005,
+        ns1:T1059.001,
+        ns1:T1059.003,
+        ns1:T1566.001 .
+
+ns1:G0046 a ns1:ThreatActor ;
+    rdfs:label "FIN7 (G0046)" ;
+    ns1:usesTechnique ns1:T1047,
+        ns1:T1053.005,
+        ns1:T1059.001,
+        ns1:T1059.003,
+        ns1:T1566.001 .
+
+ns1:G0047 a ns1:ThreatActor ;
+    rdfs:label "Gamaredon Group (G0047)" ;
+    ns1:usesTechnique ns1:T1047,
+        ns1:T1053.005,
+        ns1:T1059.001,
+        ns1:T1059.003,
+        ns1:T1566.001 .
+
+ns1:G0048 a ns1:ThreatActor ;
+    rdfs:label "RTM (G0048)" ;
+    ns1:usesTechnique ns1:T1566.001 .
+
+ns1:G0049 a ns1:ThreatActor ;
+    rdfs:label "OilRig (G0049)" ;
+    ns1:usesTechnique ns1:T1047,
+        ns1:T1053.005,
+        ns1:T1059.001,
+        ns1:T1059.003,
+        ns1:T1566.001 .
+
+ns1:G0050 a ns1:ThreatActor ;
+    rdfs:label "APT32 (G0050)" ;
+    ns1:usesTechnique ns1:T1047,
+        ns1:T1053.005,
+        ns1:T1059.001,
+        ns1:T1059.003,
+        ns1:T1566.001 .
+
+ns1:G0051 a ns1:ThreatActor ;
+    rdfs:label "FIN10 (G0051)" ;
+    ns1:usesTechnique ns1:T1053.005,
+        ns1:T1059.001,
+        ns1:T1059.003 .
+
+ns1:G0052 a ns1:ThreatActor ;
+    rdfs:label "CopyKittens (G0052)" ;
+    ns1:usesTechnique ns1:T1059.001 .
+
+ns1:G0054 a ns1:ThreatActor ;
+    rdfs:label "Sowbug (G0054)" ;
+    ns1:usesTechnique ns1:T1059.003 .
+
+ns1:G0059 a ns1:ThreatActor ;
+    rdfs:label "Magic Hound (G0059)" ;
+    ns1:usesTechnique ns1:T1047,
+        ns1:T1053.005,
+        ns1:T1059.001,
+        ns1:T1059.003 .
+
+ns1:G0060 a ns1:ThreatActor ;
+    rdfs:label "BRONZE BUTLER (G0060)" ;
+    ns1:usesTechnique ns1:T1053.005,
+        ns1:T1059.001,
+        ns1:T1059.003,
+        ns1:T1566.001 .
+
+ns1:G0061 a ns1:ThreatActor ;
+    rdfs:label "FIN8 (G0061)" ;
+    ns1:usesTechnique ns1:T1047,
+        ns1:T1053.005,
+        ns1:T1059.001,
+        ns1:T1059.003,
+        ns1:T1566.001 .
+
+ns1:G0062 a ns1:ThreatActor ;
+    rdfs:label "TA459 (G0062)" ;
+    ns1:usesTechnique ns1:T1059.001,
+        ns1:T1566.001 .
+
+ns1:G0064 a ns1:ThreatActor ;
+    rdfs:label "APT33 (G0064)" ;
+    ns1:usesTechnique ns1:T1053.005,
+        ns1:T1059.001,
+        ns1:T1566.001 .
+
+ns1:G0065 a ns1:ThreatActor ;
+    rdfs:label "Leviathan (G0065)" ;
+    ns1:usesTechnique ns1:T1047,
+        ns1:T1059.001,
+        ns1:T1566.001 .
+
+ns1:G0066 a ns1:ThreatActor ;
     rdfs:label "Elderwood (G0066)" ;
-    cti:usesTechnique cti:T1566_001_SpearphishingAttachment .
+    ns1:usesTechnique ns1:T1566.001 .
 
-cti:G0082 a cti:ThreatActor ;
+ns1:G0067 a ns1:ThreatActor ;
+    rdfs:label "APT37 (G0067)" ;
+    ns1:usesTechnique ns1:T1053.005,
+        ns1:T1059.003,
+        ns1:T1566.001 .
+
+ns1:G0068 a ns1:ThreatActor ;
+    rdfs:label "PLATINUM (G0068)" ;
+    ns1:usesTechnique ns1:T1566.001 .
+
+ns1:G0069 a ns1:ThreatActor ;
+    rdfs:label "MuddyWater (G0069)" ;
+    ns1:usesTechnique ns1:T1047,
+        ns1:T1053.005,
+        ns1:T1059.001,
+        ns1:T1059.003,
+        ns1:T1566.001 .
+
+ns1:G0070 a ns1:ThreatActor ;
+    rdfs:label "Dark Caracal (G0070)" ;
+    ns1:usesTechnique ns1:T1059.003 .
+
+ns1:G0073 a ns1:ThreatActor ;
+    rdfs:label "APT19 (G0073)" ;
+    ns1:usesTechnique ns1:T1059.001,
+        ns1:T1566.001 .
+
+ns1:G0075 a ns1:ThreatActor ;
+    rdfs:label "Rancor (G0075)" ;
+    ns1:usesTechnique ns1:T1053.005,
+        ns1:T1059.003,
+        ns1:T1566.001 .
+
+ns1:G0076 a ns1:ThreatActor ;
+    rdfs:label "Thrip (G0076)" ;
+    ns1:usesTechnique ns1:T1059.001 .
+
+ns1:G0078 a ns1:ThreatActor ;
+    rdfs:label "Gorgon Group (G0078)" ;
+    ns1:usesTechnique ns1:T1059.001,
+        ns1:T1059.003,
+        ns1:T1566.001 .
+
+ns1:G0079 a ns1:ThreatActor ;
+    rdfs:label "DarkHydrus (G0079)" ;
+    ns1:usesTechnique ns1:T1059.001,
+        ns1:T1566.001 .
+
+ns1:G0080 a ns1:ThreatActor ;
+    rdfs:label "Cobalt Group (G0080)" ;
+    ns1:usesTechnique ns1:T1053.005,
+        ns1:T1059.001,
+        ns1:T1059.003,
+        ns1:T1566.001 .
+
+ns1:G0081 a ns1:ThreatActor ;
+    rdfs:label "Tropic Trooper (G0081)" ;
+    ns1:usesTechnique ns1:T1059.003,
+        ns1:T1566.001 .
+
+ns1:G0082 a ns1:ThreatActor ;
     rdfs:label "APT38 (G0082)" ;
-    cti:usesTechnique cti:T1053.005,
-        cti:T1059.001,
-        cti:T1059.003,
-        cti:T1566_001_SpearphishingAttachment .
+    ns1:usesTechnique ns1:T1053.005,
+        ns1:T1059.001,
+        ns1:T1059.003,
+        ns1:T1566.001 .
 
-cti:G0093 a cti:ThreatActor ;
+ns1:G0084 a ns1:ThreatActor ;
+    rdfs:label "Gallmaker (G0084)" ;
+    ns1:usesTechnique ns1:T1059.001,
+        ns1:T1566.001 .
+
+ns1:G0085 a ns1:ThreatActor ;
+    rdfs:label "FIN4 (G0085)" ;
+    ns1:usesTechnique ns1:T1566.001 .
+
+ns1:G0087 a ns1:ThreatActor ;
+    rdfs:label "APT39 (G0087)" ;
+    ns1:usesTechnique ns1:T1053.005,
+        ns1:T1059.001,
+        ns1:T1566.001 .
+
+ns1:G0089 a ns1:ThreatActor ;
+    rdfs:label "The White Company (G0089)" ;
+    ns1:usesTechnique ns1:T1566.001 .
+
+ns1:G0090 a ns1:ThreatActor ;
+    rdfs:label "WIRTE (G0090)" ;
+    ns1:usesTechnique ns1:T1059.001,
+        ns1:T1059.003,
+        ns1:T1566.001 .
+
+ns1:G0091 a ns1:ThreatActor ;
+    rdfs:label "Silence (G0091)" ;
+    ns1:usesTechnique ns1:T1053.005,
+        ns1:T1059.001,
+        ns1:T1059.003,
+        ns1:T1566.001 .
+
+ns1:G0092 a ns1:ThreatActor ;
+    rdfs:label "TA505 (G0092)" ;
+    ns1:usesTechnique ns1:T1059.001,
+        ns1:T1059.003,
+        ns1:T1566.001 .
+
+ns1:G0093 a ns1:ThreatActor ;
     rdfs:label "GALLIUM (G0093)" ;
-    cti:usesTechnique cti:T1047,
-        cti:T1053.005,
-        cti:T1059.001,
-        cti:T1059.003 .
+    ns1:usesTechnique ns1:T1047,
+        ns1:T1053.005,
+        ns1:T1059.001,
+        ns1:T1059.003 .
 
-cti:G0094 a cti:ThreatActor ;
+ns1:G0094 a ns1:ThreatActor ;
     rdfs:label "Kimsuky (G0094)" ;
-    cti:usesTechnique cti:T1053.005,
-        cti:T1059.001,
-        cti:T1059.003,
-        cti:T1566_001_SpearphishingAttachment .
+    ns1:usesTechnique ns1:T1053.005,
+        ns1:T1059.001,
+        ns1:T1059.003,
+        ns1:T1566.001 .
 
-cti:G0119 a cti:ThreatActor ;
+ns1:G0095 a ns1:ThreatActor ;
+    rdfs:label "Machete (G0095)" ;
+    ns1:usesTechnique ns1:T1053.005,
+        ns1:T1059.003,
+        ns1:T1566.001 .
+
+ns1:G0096 a ns1:ThreatActor ;
+    rdfs:label "APT41 (G0096)" ;
+    ns1:usesTechnique ns1:T1047,
+        ns1:T1053.005,
+        ns1:T1059.001,
+        ns1:T1059.003,
+        ns1:T1566.001 .
+
+ns1:G0098 a ns1:ThreatActor ;
+    rdfs:label "BlackTech (G0098)" ;
+    ns1:usesTechnique ns1:T1566.001 .
+
+ns1:G0099 a ns1:ThreatActor ;
+    rdfs:label "APT-C-36 (G0099)" ;
+    ns1:usesTechnique ns1:T1047,
+        ns1:T1053.005,
+        ns1:T1059.001,
+        ns1:T1566.001 .
+
+ns1:G0100 a ns1:ThreatActor ;
+    rdfs:label "Inception (G0100)" ;
+    ns1:usesTechnique ns1:T1059.001,
+        ns1:T1566.001 .
+
+ns1:G0102 a ns1:ThreatActor ;
+    rdfs:label "Wizard Spider (G0102)" ;
+    ns1:usesTechnique ns1:T1047,
+        ns1:T1053.005,
+        ns1:T1059.001,
+        ns1:T1059.003,
+        ns1:T1566.001 .
+
+ns1:G0103 a ns1:ThreatActor ;
+    rdfs:label "Mofang (G0103)" ;
+    ns1:usesTechnique ns1:T1566.001 .
+
+ns1:G0105 a ns1:ThreatActor ;
+    rdfs:label "DarkVishnya (G0105)" ;
+    ns1:usesTechnique ns1:T1059.001 .
+
+ns1:G0108 a ns1:ThreatActor ;
+    rdfs:label "Blue Mockingbird (G0108)" ;
+    ns1:usesTechnique ns1:T1047,
+        ns1:T1053.005,
+        ns1:T1059.001,
+        ns1:T1059.003 .
+
+ns1:G0112 a ns1:ThreatActor ;
+    rdfs:label "Windshift (G0112)" ;
+    ns1:usesTechnique ns1:T1047,
+        ns1:T1566.001 .
+
+ns1:G0114 a ns1:ThreatActor ;
+    rdfs:label "Chimera (G0114)" ;
+    ns1:usesTechnique ns1:T1047,
+        ns1:T1053.005,
+        ns1:T1059.001,
+        ns1:T1059.003 .
+
+ns1:G0115 a ns1:ThreatActor ;
+    rdfs:label "GOLD SOUTHFIELD (G0115)" ;
+    ns1:usesTechnique ns1:T1059.001 .
+
+ns1:G0117 a ns1:ThreatActor ;
+    rdfs:label "Fox Kitten (G0117)" ;
+    ns1:usesTechnique ns1:T1053.005,
+        ns1:T1059.001,
+        ns1:T1059.003 .
+
+ns1:G0119 a ns1:ThreatActor ;
     rdfs:label "Indrik Spider (G0119)" ;
-    cti:usesTechnique cti:T1047,
-        cti:T1059.001,
-        cti:T1059.003 .
+    ns1:usesTechnique ns1:T1047,
+        ns1:T1059.001,
+        ns1:T1059.003 .
 
-cti:G1008 a cti:ThreatActor ;
+ns1:G0121 a ns1:ThreatActor ;
+    rdfs:label "Sidewinder (G0121)" ;
+    ns1:usesTechnique ns1:T1059.001,
+        ns1:T1566.001 .
+
+ns1:G0125 a ns1:ThreatActor ;
+    rdfs:label "HAFNIUM (G0125)" ;
+    ns1:usesTechnique ns1:T1059.001,
+        ns1:T1059.003 .
+
+ns1:G0126 a ns1:ThreatActor ;
+    rdfs:label "Higaisa (G0126)" ;
+    ns1:usesTechnique ns1:T1053.005,
+        ns1:T1059.003,
+        ns1:T1566.001 .
+
+ns1:G0127 a ns1:ThreatActor ;
+    rdfs:label "TA551 (G0127)" ;
+    ns1:usesTechnique ns1:T1059.003,
+        ns1:T1566.001 .
+
+ns1:G0128 a ns1:ThreatActor ;
+    rdfs:label "ZIRCONIUM (G0128)" ;
+    ns1:usesTechnique ns1:T1059.003 .
+
+ns1:G0129 a ns1:ThreatActor ;
+    rdfs:label "Mustang Panda (G0129)" ;
+    ns1:usesTechnique ns1:T1047,
+        ns1:T1053.005,
+        ns1:T1059.001,
+        ns1:T1059.003,
+        ns1:T1566.001 .
+
+ns1:G0130 a ns1:ThreatActor ;
+    rdfs:label "Ajax Security Team (G0130)" ;
+    ns1:usesTechnique ns1:T1566.001 .
+
+ns1:G0131 a ns1:ThreatActor ;
+    rdfs:label "Tonto Team (G0131)" ;
+    ns1:usesTechnique ns1:T1059.001,
+        ns1:T1566.001 .
+
+ns1:G0133 a ns1:ThreatActor ;
+    rdfs:label "Nomadic Octopus (G0133)" ;
+    ns1:usesTechnique ns1:T1059.001,
+        ns1:T1059.003,
+        ns1:T1566.001 .
+
+ns1:G0134 a ns1:ThreatActor ;
+    rdfs:label "Transparent Tribe (G0134)" ;
+    ns1:usesTechnique ns1:T1566.001 .
+
+ns1:G0136 a ns1:ThreatActor ;
+    rdfs:label "IndigoZebra (G0136)" ;
+    ns1:usesTechnique ns1:T1566.001 .
+
+ns1:G0137 a ns1:ThreatActor ;
+    rdfs:label "Ferocious Kitten (G0137)" ;
+    ns1:usesTechnique ns1:T1566.001 .
+
+ns1:G0138 a ns1:ThreatActor ;
+    rdfs:label "Andariel (G0138)" ;
+    ns1:usesTechnique ns1:T1566.001 .
+
+ns1:G0139 a ns1:ThreatActor ;
+    rdfs:label "TeamTNT (G0139)" ;
+    ns1:usesTechnique ns1:T1059.001,
+        ns1:T1059.003 .
+
+ns1:G0140 a ns1:ThreatActor ;
+    rdfs:label "LazyScripter (G0140)" ;
+    ns1:usesTechnique ns1:T1059.001,
+        ns1:T1059.003,
+        ns1:T1566.001 .
+
+ns1:G0142 a ns1:ThreatActor ;
+    rdfs:label "Confucius (G0142)" ;
+    ns1:usesTechnique ns1:T1053.005,
+        ns1:T1059.001,
+        ns1:T1566.001 .
+
+ns1:G0143 a ns1:ThreatActor ;
+    rdfs:label "Aquatic Panda (G0143)" ;
+    ns1:usesTechnique ns1:T1047,
+        ns1:T1059.001,
+        ns1:T1059.003 .
+
+ns1:G1001 a ns1:ThreatActor ;
+    rdfs:label "HEXANE (G1001)" ;
+    ns1:usesTechnique ns1:T1053.005,
+        ns1:T1059.001 .
+
+ns1:G1002 a ns1:ThreatActor ;
+    rdfs:label "BITTER (G1002)" ;
+    ns1:usesTechnique ns1:T1053.005,
+        ns1:T1566.001 .
+
+ns1:G1003 a ns1:ThreatActor ;
+    rdfs:label "Ember Bear (G1003)" ;
+    ns1:usesTechnique ns1:T1047,
+        ns1:T1053.005,
+        ns1:T1059.001 .
+
+ns1:G1006 a ns1:ThreatActor ;
+    rdfs:label "Earth Lusca (G1006)" ;
+    ns1:usesTechnique ns1:T1047,
+        ns1:T1053.005,
+        ns1:T1059.001 .
+
+ns1:G1008 a ns1:ThreatActor ;
     rdfs:label "SideCopy (G1008)" ;
-    cti:usesTechnique cti:T1566_001_SpearphishingAttachment .
+    ns1:usesTechnique ns1:T1566.001 .
 
-cti:G1011 a cti:ThreatActor ;
+ns1:G1011 a ns1:ThreatActor ;
     rdfs:label "EXOTIC LILY (G1011)" ;
-    cti:usesTechnique cti:T1566_001_SpearphishingAttachment .
+    ns1:usesTechnique ns1:T1566.001 .
 
-cti:G1037 a cti:ThreatActor ;
+ns1:G1012 a ns1:ThreatActor ;
+    rdfs:label "CURIUM (G1012)" ;
+    ns1:usesTechnique ns1:T1059.001,
+        ns1:T1566.001 .
+
+ns1:G1013 a ns1:ThreatActor ;
+    rdfs:label "Metador (G1013)" ;
+    ns1:usesTechnique ns1:T1059.003 .
+
+ns1:G1014 a ns1:ThreatActor ;
+    rdfs:label "LuminousMoth (G1014)" ;
+    ns1:usesTechnique ns1:T1053.005 .
+
+ns1:G1015 a ns1:ThreatActor ;
+    rdfs:label "Scattered Spider (G1015)" ;
+    ns1:usesTechnique ns1:T1059.001 .
+
+ns1:G1016 a ns1:ThreatActor ;
+    rdfs:label "FIN13 (G1016)" ;
+    ns1:usesTechnique ns1:T1047,
+        ns1:T1053.005,
+        ns1:T1059.001,
+        ns1:T1059.003 .
+
+ns1:G1017 a ns1:ThreatActor ;
+    rdfs:label "Volt Typhoon (G1017)" ;
+    ns1:usesTechnique ns1:T1047,
+        ns1:T1059.001,
+        ns1:T1059.003 .
+
+ns1:G1018 a ns1:ThreatActor ;
+    rdfs:label "TA2541 (G1018)" ;
+    ns1:usesTechnique ns1:T1047,
+        ns1:T1053.005,
+        ns1:T1059.001,
+        ns1:T1566.001 .
+
+ns1:G1019 a ns1:ThreatActor ;
+    rdfs:label "MoustachedBouncer (G1019)" ;
+    ns1:usesTechnique ns1:T1059.001 .
+
+ns1:G1021 a ns1:ThreatActor ;
+    rdfs:label "Cinnamon Tempest (G1021)" ;
+    ns1:usesTechnique ns1:T1047,
+        ns1:T1059.001,
+        ns1:T1059.003 .
+
+ns1:G1022 a ns1:ThreatActor ;
+    rdfs:label "ToddyCat (G1022)" ;
+    ns1:usesTechnique ns1:T1047,
+        ns1:T1053.005,
+        ns1:T1059.001,
+        ns1:T1059.003 .
+
+ns1:G1023 a ns1:ThreatActor ;
+    rdfs:label "APT5 (G1023)" ;
+    ns1:usesTechnique ns1:T1059.001,
+        ns1:T1059.003 .
+
+ns1:G1024 a ns1:ThreatActor ;
+    rdfs:label "Akira (G1024)" ;
+    ns1:usesTechnique ns1:T1059.001 .
+
+ns1:G1026 a ns1:ThreatActor ;
+    rdfs:label "Malteiro (G1026)" ;
+    ns1:usesTechnique ns1:T1566.001 .
+
+ns1:G1030 a ns1:ThreatActor ;
+    rdfs:label "Agrius (G1030)" ;
+    ns1:usesTechnique ns1:T1059.003 .
+
+ns1:G1031 a ns1:ThreatActor ;
+    rdfs:label "Saint Bear (G1031)" ;
+    ns1:usesTechnique ns1:T1059.001,
+        ns1:T1059.003,
+        ns1:T1566.001 .
+
+ns1:G1032 a ns1:ThreatActor ;
+    rdfs:label "INC Ransom (G1032)" ;
+    ns1:usesTechnique ns1:T1047,
+        ns1:T1059.003 .
+
+ns1:G1033 a ns1:ThreatActor ;
+    rdfs:label "Star Blizzard (G1033)" ;
+    ns1:usesTechnique ns1:T1566.001 .
+
+ns1:G1034 a ns1:ThreatActor ;
+    rdfs:label "Daggerfly (G1034)" ;
+    ns1:usesTechnique ns1:T1053.005,
+        ns1:T1059.001 .
+
+ns1:G1035 a ns1:ThreatActor ;
+    rdfs:label "Winter Vivern (G1035)" ;
+    ns1:usesTechnique ns1:T1053.005,
+        ns1:T1059.001,
+        ns1:T1059.003,
+        ns1:T1566.001 .
+
+ns1:G1036 a ns1:ThreatActor ;
+    rdfs:label "Moonstone Sleet (G1036)" ;
+    ns1:usesTechnique ns1:T1053.005,
+        ns1:T1566.001 .
+
+ns1:G1037 a ns1:ThreatActor ;
     rdfs:label "TA577 (G1037)" ;
-    cti:usesTechnique cti:T1059.003 .
+    ns1:usesTechnique ns1:T1059.003 .
 
-cti:G1043 a cti:ThreatActor ;
+ns1:G1039 a ns1:ThreatActor ;
+    rdfs:label "RedCurl (G1039)" ;
+    ns1:usesTechnique ns1:T1053.005,
+        ns1:T1059.001,
+        ns1:T1059.003,
+        ns1:T1566.001 .
+
+ns1:G1040 a ns1:ThreatActor ;
+    rdfs:label "Play (G1040)" ;
+    ns1:usesTechnique ns1:T1059.001,
+        ns1:T1059.003 .
+
+ns1:G1043 a ns1:ThreatActor ;
     rdfs:label "BlackByte (G1043)" ;
-    cti:usesTechnique cti:T1047,
-        cti:T1053.005,
-        cti:T1059.001,
-        cti:T1059.003 .
+    ns1:usesTechnique ns1:T1047,
+        ns1:T1053.005,
+        ns1:T1059.001,
+        ns1:T1059.003 .
 
-cti:CWE_122_HeapBasedBufferOverflow a owl:NamedIndividual,
-        cti:Weakness ;
-    rdfs:label "CWE-122: Heap-based Buffer Overflow" ;
-    rdfs:seeAlso "https://cwe.mitre.org/data/definitions/122.html" .
+ns1:G1044 a ns1:ThreatActor ;
+    rdfs:label "APT42 (G1044)" ;
+    ns1:usesTechnique ns1:T1047,
+        ns1:T1053.005,
+        ns1:T1059.001 .
 
-cti:CWE_190 a cti:Weakness ;
+ns1:G1046 a ns1:ThreatActor ;
+    rdfs:label "Storm-1811 (G1046)" ;
+    ns1:usesTechnique ns1:T1059.001,
+        ns1:T1059.003 .
+
+ns1:G1047 a ns1:ThreatActor ;
+    rdfs:label "Velvet Ant (G1047)" ;
+    ns1:usesTechnique ns1:T1047 .
+
+ns1:G1048 a ns1:ThreatActor ;
+    rdfs:label "UNC3886 (G1048)" ;
+    ns1:usesTechnique ns1:T1059.001,
+        ns1:T1059.003 .
+
+ns1:G1051 a ns1:ThreatActor ;
+    rdfs:label "Medusa Group (G1051)" ;
+    ns1:usesTechnique ns1:T1047,
+        ns1:T1059.001,
+        ns1:T1059.003 .
+
+ns1:G1052 a ns1:ThreatActor ;
+    rdfs:label "Contagious Interview (G1052)" ;
+    ns1:usesTechnique ns1:T1059.003 .
+
+ns1:G1053 a ns1:ThreatActor ;
+    rdfs:label "Storm-0501 (G1053)" ;
+    ns1:usesTechnique ns1:T1053.005,
+        ns1:T1059.001 .
+
+ns1:G1054 a ns1:ThreatActor ;
+    rdfs:label "MirrorFace (G1054)" ;
+    ns1:usesTechnique ns1:T1047,
+        ns1:T1059.003,
+        ns1:T1566.001 .
+
+ns1:G1055 a ns1:ThreatActor ;
+    rdfs:label "VOID MANTICORE (G1055)" ;
+    ns1:usesTechnique ns1:T1047,
+        ns1:T1059.001 .
+
+ns1:CWE_122 a ns1:Weakness ;
+    rdfs:label "CWE-122" .
+
+ns1:CWE_190 a ns1:Weakness ;
     rdfs:label "CWE-190" .
 
-cti:CWE_191 a cti:Weakness ;
+ns1:CWE_191 a ns1:Weakness ;
     rdfs:label "CWE-191" .
 
-cti:CWE_20 a cti:Weakness ;
+ns1:CWE_20 a ns1:Weakness ;
     rdfs:label "CWE-20" .
 
-cti:CWE_787 a cti:Weakness ;
+ns1:CWE_787 a ns1:Weakness ;
     rdfs:label "CWE-787" .
 
-cti:CriticalSeverity a cti:SeverityLevel ;
+ns1:CriticalSeverity a ns1:SeverityLevel ;
     rdfs:label "CRITICAL severity" .
 
-cti:InitialAccess a owl:NamedIndividual,
-        cti:AttackTactic ;
+ns1:InitialAccess a ns1:AttackTactic ;
     rdfs:label "Initial Access" .
 
-<https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_11_24h2_*> a cti:OperatingSystem ;
+ns1:Persistence a ns1:AttackTactic ;
+    rdfs:label "Persistence" .
+
+ns1:PrivilegeEscalation a ns1:AttackTactic ;
+    rdfs:label "Privilege Escalation" .
+
+<https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_11_24h2_*> a ns1:OperatingSystem ;
     rdfs:label "windows_11_24h2 *" ;
-    cti:belongsToPlatform cti:Windows .
+    ns1:belongsToPlatform ns1:Windows .
 
-<https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_server_2012_*> a cti:OperatingSystem ;
+<https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_server_2012_*> a ns1:OperatingSystem ;
     rdfs:label "windows_server_2012 *" ;
-    cti:belongsToPlatform cti:Windows .
+    ns1:belongsToPlatform ns1:Windows .
 
-cti:windows_server_2012_- a cti:OperatingSystem ;
+ns1:windows_server_2012_- a ns1:OperatingSystem ;
     rdfs:label "windows_server_2012 -" ;
-    cti:belongsToPlatform cti:Windows .
+    ns1:belongsToPlatform ns1:Windows .
 
-cti:windows_server_2008_- a cti:OperatingSystem ;
+ns1:windows_server_2008_- a ns1:OperatingSystem ;
     rdfs:label "windows_server_2008 -" ;
-    cti:belongsToPlatform cti:Windows .
+    ns1:belongsToPlatform ns1:Windows .
 
-cti:windows_server_2008_r2 a cti:OperatingSystem ;
+ns1:windows_server_2008_r2 a ns1:OperatingSystem ;
     rdfs:label "windows_server_2008 r2" ;
-    cti:belongsToPlatform cti:Windows .
+    ns1:belongsToPlatform ns1:Windows .
 
-cti:windows_server_2012_r2 a cti:OperatingSystem ;
+ns1:windows_server_2012_r2 a ns1:OperatingSystem ;
     rdfs:label "windows_server_2012 r2" ;
-    cti:belongsToPlatform cti:Windows .
+    ns1:belongsToPlatform ns1:Windows .
 
-cti:HighSeverity a cti:SeverityLevel ;
+ns1:HighSeverity a ns1:SeverityLevel ;
     rdfs:label "HIGH severity" .
 
-cti:T1047 a cti:AttackTechnique ;
-    rdfs:label "Windows Management Instrumentation (T1047)" ;
-    cti:applicableToPlatform cti:Windows .
-
-<https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_10_1507_*> a cti:OperatingSystem ;
+<https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_10_1507_*> a ns1:OperatingSystem ;
     rdfs:label "windows_10_1507 *" ;
-    cti:belongsToPlatform cti:Windows .
+    ns1:belongsToPlatform ns1:Windows .
 
-<https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_10_1607_*> a cti:OperatingSystem ;
+<https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_10_1607_*> a ns1:OperatingSystem ;
     rdfs:label "windows_10_1607 *" ;
-    cti:belongsToPlatform cti:Windows .
+    ns1:belongsToPlatform ns1:Windows .
 
-<https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_10_1809_*> a cti:OperatingSystem ;
+<https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_10_1809_*> a ns1:OperatingSystem ;
     rdfs:label "windows_10_1809 *" ;
-    cti:belongsToPlatform cti:Windows .
+    ns1:belongsToPlatform ns1:Windows .
 
-<https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_10_21h2_*> a cti:OperatingSystem ;
+<https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_10_21h2_*> a ns1:OperatingSystem ;
     rdfs:label "windows_10_21h2 *" ;
-    cti:belongsToPlatform cti:Windows .
+    ns1:belongsToPlatform ns1:Windows .
 
-<https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_10_22h2_*> a cti:OperatingSystem ;
+<https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_10_22h2_*> a ns1:OperatingSystem ;
     rdfs:label "windows_10_22h2 *" ;
-    cti:belongsToPlatform cti:Windows .
+    ns1:belongsToPlatform ns1:Windows .
 
-<https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_server_2016_*> a cti:OperatingSystem ;
+<https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_server_2016_*> a ns1:OperatingSystem ;
     rdfs:label "windows_server_2016 *" ;
-    cti:belongsToPlatform cti:Windows .
+    ns1:belongsToPlatform ns1:Windows .
 
-<https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_server_2019_*> a cti:OperatingSystem ;
+<https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_server_2019_*> a ns1:OperatingSystem ;
     rdfs:label "windows_server_2019 *" ;
-    cti:belongsToPlatform cti:Windows .
+    ns1:belongsToPlatform ns1:Windows .
 
-<https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_server_2022_23h2_*> a cti:OperatingSystem ;
+<https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_server_2022_23h2_*> a ns1:OperatingSystem ;
     rdfs:label "windows_server_2022_23h2 *" ;
-    cti:belongsToPlatform cti:Windows .
+    ns1:belongsToPlatform ns1:Windows .
 
-cti:Windows11_23H2 a owl:NamedIndividual,
-        cti:OperatingSystem ;
-    rdfs:label "Windows 11 Version 23H2" ;
-    cti:belongsToPlatform cti:Windows .
+ns1:Execution a ns1:AttackTactic ;
+    rdfs:label "Execution" .
 
-<https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_11_21h2_*> a cti:OperatingSystem ;
+<https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_11_21h2_*> a ns1:OperatingSystem ;
     rdfs:label "windows_11_21h2 *" ;
-    cti:belongsToPlatform cti:Windows .
+    ns1:belongsToPlatform ns1:Windows .
 
-<https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_11_22h2_*> a cti:OperatingSystem ;
+<https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_11_22h2_*> a ns1:OperatingSystem ;
     rdfs:label "windows_11_22h2 *" ;
-    cti:belongsToPlatform cti:Windows .
+    ns1:belongsToPlatform ns1:Windows .
 
-<https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_11_23h2_*> a cti:OperatingSystem ;
+<https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_11_23h2_*> a ns1:OperatingSystem ;
     rdfs:label "windows_11_23h2 *" ;
-    cti:belongsToPlatform cti:Windows .
+    ns1:belongsToPlatform ns1:Windows .
 
-<https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_server_2022_*> a cti:OperatingSystem ;
+<https://github.com/Timoseee/windows-cyber-threat-kg/ontology#windows_server_2022_*> a ns1:OperatingSystem ;
     rdfs:label "windows_server_2022 *" ;
-    cti:belongsToPlatform cti:Windows .
+    ns1:belongsToPlatform ns1:Windows .
 
-cti:T1053.005 a cti:AttackTechnique ;
+ns1:T1047 a ns1:AttackTechnique ;
+    rdfs:label "Windows Management Instrumentation (T1047)" ;
+    ns1:applicableToPlatform ns1:Windows ;
+    ns1:belongsToTactic ns1:Execution .
+
+ns1:T1053.005 a ns1:AttackTechnique ;
     rdfs:label "Scheduled Task (T1053.005)" ;
-    cti:applicableToPlatform cti:Windows .
+    ns1:applicableToPlatform ns1:Windows ;
+    ns1:belongsToTactic ns1:Execution,
+        ns1:Persistence,
+        ns1:PrivilegeEscalation .
 
-cti:T1059.001 a cti:AttackTechnique ;
-    rdfs:label "PowerShell (T1059.001)" ;
-    cti:applicableToPlatform cti:Windows .
-
-cti:T1566_001_SpearphishingAttachment a owl:NamedIndividual,
-        cti:AttackTechnique ;
-    rdfs:label "Spearphishing Attachment (T1566.001)" ;
-    rdfs:seeAlso "https://attack.mitre.org/techniques/T1566/001/" ;
-    cti:applicableToPlatform cti:Windows ;
-    cti:belongsToTactic cti:InitialAccess .
-
-cti:T1059.003 a cti:AttackTechnique ;
+ns1:T1059.003 a ns1:AttackTechnique ;
     rdfs:label "Windows Command Shell (T1059.003)" ;
-    cti:applicableToPlatform cti:Windows .
+    ns1:applicableToPlatform ns1:Windows ;
+    ns1:belongsToTactic ns1:Execution .
 
-cti:Windows a owl:NamedIndividual,
-        cti:Platform ;
-    rdfs:label "Windows" .
+ns1:T1566.001 a ns1:AttackTechnique ;
+    rdfs:label "Spearphishing Attachment (T1566.001)" ;
+    ns1:applicableToPlatform ns1:Windows ;
+    ns1:belongsToTactic ns1:InitialAccess .
+
+ns1:T1059.001 a ns1:AttackTechnique ;
+    rdfs:label "PowerShell (T1059.001)" ;
+    ns1:applicableToPlatform ns1:Windows ;
+    ns1:belongsToTactic ns1:Execution .
 
