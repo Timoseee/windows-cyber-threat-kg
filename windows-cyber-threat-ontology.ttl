@@ -1,69 +1,122 @@
+@prefix : <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#> .
 @prefix cti: <https://github.com/Timoseee/windows-cyber-threat-kg/ontology#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://github.com/Timoseee/windows-cyber-threat-kg/ontology> .
 
-<https://github.com/Timoseee/windows-cyber-threat-kg/ontology> a owl:Ontology .
+<https://github.com/Timoseee/windows-cyber-threat-kg/ontology> rdf:type owl:Ontology ;
+                                                                owl:imports <file:/C:/Users/lenovo/OneDrive/Desktop/windows-cyber-threat-instances.ttl> .
 
-cti:applicableToPlatform a owl:ObjectProperty ;
-    rdfs:domain cti:AttackTechnique ;
-    rdfs:range cti:Platform .
+#################################################################
+#    Object Properties
+#################################################################
 
-cti:belongsToPlatform a owl:ObjectProperty ;
-    rdfs:domain cti:OperatingSystem ;
-    rdfs:range cti:Platform .
+###  https://github.com/Timoseee/windows-cyber-threat-kg/ontology#affectsProduct
+cti:affectsProduct rdf:type owl:ObjectProperty ;
+                   rdfs:domain cti:Vulnerability ;
+                   rdfs:range cti:SoftwareProduct .
 
-cti:belongsToTactic a owl:ObjectProperty ;
-    rdfs:domain cti:AttackTechnique ;
-    rdfs:range cti:AttackTactic .
 
-cti:conductsCampaign a owl:ObjectProperty ;
-    rdfs:domain cti:ThreatActor ;
-    rdfs:range cti:AttackCampaign .
+###  https://github.com/Timoseee/windows-cyber-threat-kg/ontology#applicableToPlatform
+cti:applicableToPlatform rdf:type owl:ObjectProperty ;
+                         rdfs:domain cti:AttackTechnique ;
+                         rdfs:range cti:Platform .
 
-cti:hasSeverity a owl:ObjectProperty ;
-    rdfs:domain cti:Vulnerability ;
-    rdfs:range cti:SeverityLevel .
 
-cti:usesTechnique a owl:ObjectProperty ;
-    rdfs:domain cti:ThreatActor ;
-    rdfs:range cti:AttackTechnique .
+###  https://github.com/Timoseee/windows-cyber-threat-kg/ontology#belongsToPlatform
+cti:belongsToPlatform rdf:type owl:ObjectProperty ;
+                      rdfs:domain cti:OperatingSystem ;
+                      rdfs:range cti:Platform .
 
-cti:AttackCampaign a owl:Class .
 
-cti:AttackTactic a owl:Class .
+###  https://github.com/Timoseee/windows-cyber-threat-kg/ontology#belongsToTactic
+cti:belongsToTactic rdf:type owl:ObjectProperty ;
+                    rdfs:domain cti:AttackTechnique ;
+                    rdfs:range cti:AttackTactic .
 
-cti:OperatingSystem a owl:Class ;
-    rdfs:comment "This class is same with UCO's: OperatingSystem" ;
-    rdfs:seeAlso "https://ontology.unifiedcyberontology.org/uco/observable/OperatingSystem" ;
-    rdfs:subClassOf cti:SoftwareProduct .
 
-cti:SeverityLevel a owl:Class .
+###  https://github.com/Timoseee/windows-cyber-threat-kg/ontology#conductsCampaign
+cti:conductsCampaign rdf:type owl:ObjectProperty ;
+                     rdfs:domain cti:ThreatActor ;
+                     rdfs:range cti:AttackCampaign .
 
-cti:affectsProduct a owl:ObjectProperty ;
-    rdfs:domain cti:Vulnerability ;
-    rdfs:range cti:SoftwareProduct .
 
-cti:hasWeakness a owl:ObjectProperty ;
-    rdfs:domain cti:Vulnerability ;
-    rdfs:range cti:Weakness .
+###  https://github.com/Timoseee/windows-cyber-threat-kg/ontology#hasSeverity
+cti:hasSeverity rdf:type owl:ObjectProperty ;
+                rdfs:domain cti:Vulnerability ;
+                rdfs:range cti:SeverityLevel .
 
-cti:Platform a owl:Class .
 
-cti:ThreatActor a owl:Class .
+###  https://github.com/Timoseee/windows-cyber-threat-kg/ontology#hasWeakness
+cti:hasWeakness rdf:type owl:ObjectProperty ;
+                rdfs:domain cti:Vulnerability ;
+                rdfs:range cti:Weakness .
 
-cti:Weakness a owl:Class .
 
-cti:AttackTechnique a owl:Class .
+###  https://github.com/Timoseee/windows-cyber-threat-kg/ontology#usesTechnique
+cti:usesTechnique rdf:type owl:ObjectProperty ;
+                  rdfs:domain cti:ThreatActor ;
+                  rdfs:range cti:AttackTechnique .
 
-cti:SoftwareProduct a owl:Class ;
-    rdfs:comment "This class is related to UCO: software" ;
-    rdfs:seeAlso "https://ontology.unifiedcyberontology.org/uco/observable/Software" .
 
-cti:Vulnerability a owl:Class ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty cti:affectsProduct ;
-            owl:someValuesFrom cti:SoftwareProduct ],
-        [ a owl:Restriction ;
-            owl:onProperty cti:hasWeakness ;
-            owl:someValuesFrom cti:Weakness ] .
+#################################################################
+#    Classes
+#################################################################
 
+###  https://github.com/Timoseee/windows-cyber-threat-kg/ontology#AttackCampaign
+cti:AttackCampaign rdf:type owl:Class .
+
+
+###  https://github.com/Timoseee/windows-cyber-threat-kg/ontology#AttackTactic
+cti:AttackTactic rdf:type owl:Class .
+
+
+###  https://github.com/Timoseee/windows-cyber-threat-kg/ontology#AttackTechnique
+cti:AttackTechnique rdf:type owl:Class .
+
+
+###  https://github.com/Timoseee/windows-cyber-threat-kg/ontology#OperatingSystem
+cti:OperatingSystem rdf:type owl:Class ;
+                    rdfs:subClassOf cti:SoftwareProduct ;
+                    rdfs:comment "This class is same with UCO's: OperatingSystem" ;
+                    rdfs:seeAlso "https://ontology.unifiedcyberontology.org/uco/observable/OperatingSystem" .
+
+
+###  https://github.com/Timoseee/windows-cyber-threat-kg/ontology#Platform
+cti:Platform rdf:type owl:Class .
+
+
+###  https://github.com/Timoseee/windows-cyber-threat-kg/ontology#SeverityLevel
+cti:SeverityLevel rdf:type owl:Class .
+
+
+###  https://github.com/Timoseee/windows-cyber-threat-kg/ontology#SoftwareProduct
+cti:SoftwareProduct rdf:type owl:Class ;
+                    rdfs:comment "This class is related to UCO: software" ;
+                    rdfs:seeAlso "https://ontology.unifiedcyberontology.org/uco/observable/Software" .
+
+
+###  https://github.com/Timoseee/windows-cyber-threat-kg/ontology#ThreatActor
+cti:ThreatActor rdf:type owl:Class .
+
+
+###  https://github.com/Timoseee/windows-cyber-threat-kg/ontology#Vulnerability
+cti:Vulnerability rdf:type owl:Class ;
+                  rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                    owl:onProperty cti:affectsProduct ;
+                                    owl:someValuesFrom cti:SoftwareProduct
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty cti:hasWeakness ;
+                                    owl:someValuesFrom cti:Weakness
+                                  ] .
+
+
+###  https://github.com/Timoseee/windows-cyber-threat-kg/ontology#Weakness
+cti:Weakness rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
